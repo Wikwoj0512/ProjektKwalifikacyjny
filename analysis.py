@@ -31,8 +31,8 @@ def get_header_words(document: str) -> typing.Dict[str,int]:
     """
     header_words = {}
     for header in RegEx.findall("header", document):
-        for content in RegEx.findall("content", header):
-            for word in RegEx.findall("words", content):
+        for content in RegEx.findall("headerContent", header):
+            for word in RegEx.findall("words", content[1]):
                 header_words[word] = 0
     if not header_words:
         raise ContentException("No header found on the page")

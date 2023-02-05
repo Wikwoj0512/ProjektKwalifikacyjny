@@ -15,7 +15,8 @@ class RegEx:
         body=re.compile(r'<body[^>]*>([\s\S]*)(?=</body>)'),  # Find everything between <body> and </body>
         header=re.compile(r'<h1[^>]*>([\s\S]+)(?=</h1>)'),  # Find everything in header tags
         words=re.compile(r'\w{2,}'),  # Find words with at least 2 characters
-        content=re.compile(r'<(?!script|title)[^>]*>([^<]*)')
+        content=re.compile(r'<(?!script|title)[^>]*>([^<]*)'),  # Find everything between tags except <script> and <title>
+        headerContent= re.compile(r'(<(?!script|title)[^>]*>){0,1}([^<]*)')
         # Find everything between tags except <script> and <title>
     )
 
